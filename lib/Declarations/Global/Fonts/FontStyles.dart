@@ -19,3 +19,4 @@ var fontName = <String>[
 ];
 
 String selectedFont = "roboto";
+int globalfontIndex = 1;
