@@ -53,7 +53,7 @@ Widget buildBody(BuildContext context) => Container(
                             text: TextSpan(
                               children: <TextSpan>[
                                 TextSpan(
-                                  text: homepagedecl.amount.toString(),
+                                  text: homepagedecl.amount.value.toString(),
                                   style: fonts[globalfontIndex](
                                     color: primaryColor,
                                     fontWeight: FontWeight.bold,
@@ -76,14 +76,14 @@ Widget buildBody(BuildContext context) => Container(
                               buildIncDec(Icons.remove),
                               widthSpacer(15.00),
                               Text(
-                                homepagedecl.count.toString(),
+                                homepagedecl.count.value.toString(),
                                 style: fonts[globalfontIndex](
                                     color: primaryColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20.00),
                               ),
                               widthSpacer(15.00),
-                              buildIncDec(Icons.remove),
+                              buildIncDec(Icons.add),
                             ],
                           )
                         ],
@@ -97,7 +97,9 @@ Widget buildBody(BuildContext context) => Container(
     );
 
 Widget buildIncDec(IconData myIcon) => GestureDetector(
-  onTap: (){},
+      onTap: () {
+        myIcon == Icons.add ? handleIncDec(true) : handleIncDec(false);
+      },
       child: Container(
         width: 25,
         height: 25,
@@ -111,3 +113,17 @@ Widget buildIncDec(IconData myIcon) => GestureDetector(
         ),
       ),
     );
+
+handleIncDec(bool canInc) {
+  canInc
+      ? homepagedecl.amount.value += 75
+      : homepagedecl.amount.value - 75 >= 75
+      ? homepagedecl.amount.value -= 75
+      : homepagedecl.amount.value;
+
+  canInc
+      ? homepagedecl.count.value += 1
+      : homepagedecl.count.value - 1 >= 1
+      ? homepagedecl.count.value -= 1
+      : homepagedecl.count.value;
+}

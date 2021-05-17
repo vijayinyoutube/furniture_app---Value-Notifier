@@ -1,6 +1,8 @@
-class HomePageDecl {
-  int amount = 75;
-  int count=1;
+import 'package:flutter/material.dart';
+
+class HomePageDecl with ChangeNotifier {
+  ValueNotifier<int> amount = ValueNotifier<int>(75);
+  ValueNotifier<int> count = ValueNotifier<int>(1);
 }
 
 HomePageDecl homepagedecl = new HomePageDecl();
