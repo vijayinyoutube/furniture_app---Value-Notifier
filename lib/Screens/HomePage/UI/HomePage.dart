@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_app/Declarations/HomePageDecl.dart';
 import 'package:furniture_app/Screens/HomePage/Widgets/2Body.dart';
 import 'package:furniture_app/Screens/HomePage/Widgets/1AppBar.dart';
 
@@ -12,7 +13,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: buildBody(context),
+      body: ValueListenableBuilder<int>(
+          valueListenable: homepagedecl.amount,
+          builder: (context, value, _) {
+            return buildBody(context);
+          }),
     );
   }
 }
