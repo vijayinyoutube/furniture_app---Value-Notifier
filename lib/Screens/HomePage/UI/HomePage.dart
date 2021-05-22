@@ -16,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ValueListenableBuilder<int>(
           valueListenable: homepagedecl.amount,
           builder: (context, value, _) {
-            return buildBody(context);
+            return SingleChildScrollView(child: buildBody(context));
           }),
     );
   }
