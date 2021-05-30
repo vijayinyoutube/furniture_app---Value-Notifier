@@ -14,9 +14,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: buildAppBar(),
       body: ValueListenableBuilder<int>(
-          valueListenable: homepagedecl.amount,
+          valueListenable: homepagedecl.count,
           builder: (context, value, _) {
-            return SingleChildScrollView(child: buildBody(context));
+            return SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: buildBody(context));
           }),
     );
   }
