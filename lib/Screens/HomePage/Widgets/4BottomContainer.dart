@@ -150,7 +150,7 @@ Widget buildPrice(BuildContext context) => Container(
             text: TextSpan(
               children: <TextSpan>[
                 TextSpan(
-                  text: homepagedecl.amount.value.toString(),
+                  text: homepagedecl.amount.toString(),
                   style: fonts[globalfontIndex](
                     color: primaryColor,
                     fontWeight: FontWeight.bold,
@@ -211,7 +211,7 @@ handleIncDec(bool canInc) {
       : homepagedecl.count.value - 1 >= 1
       ? homepagedecl.count.value -= 1
       : homepagedecl.count.value;
-  homepagedecl.amount.value = homepagedecl.count.value * 75;
+  homepagedecl.amount = homepagedecl.count.value * 75;
 }
 
 Widget buildColorIcons(BuildContext context) => Row(
