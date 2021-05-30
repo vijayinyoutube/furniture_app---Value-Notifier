@@ -207,16 +207,11 @@ Widget buildIncDec(IconData myIcon) => GestureDetector(
 
 handleIncDec(bool canInc) {
   canInc
-      ? homepagedecl.amount.value += 75
-      : homepagedecl.amount.value - 75 >= 75
-      ? homepagedecl.amount.value -= 75
-      : homepagedecl.amount.value;
-
-  canInc
       ? homepagedecl.count.value += 1
       : homepagedecl.count.value - 1 >= 1
       ? homepagedecl.count.value -= 1
       : homepagedecl.count.value;
+  homepagedecl.amount.value = homepagedecl.count.value * 75;
 }
 
 Widget buildColorIcons(BuildContext context) => Row(
